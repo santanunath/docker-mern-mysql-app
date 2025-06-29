@@ -21,13 +21,8 @@ const db = mysql.createPool(
 //  database: 'test_db'
  })
 
-console.log("connected to mysql database");
+console.log("backend connected to mysql database");
 
-
-// *********************
-// Enable cors security headers
-// *********************
-//app.use(cors())
 
 
 // ***********************
@@ -122,10 +117,7 @@ app.put("/update/:bookId", (req, res) => {
 // run backend server 
 // at defined port
 // *******************
-
-//app.listen('3001', () => { })
-
 const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`backend server is running at port: ${PORT}`);
-  });
+});
