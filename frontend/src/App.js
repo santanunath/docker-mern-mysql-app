@@ -18,8 +18,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Books/>}/>
-          <Route path='/add' element={<Add/>}/>
+          <Route path="/"           element={<Books/>}/>
+          <Route path='/add'        element={<Add/>}/>
           <Route path='/update/:id' element={<Update/>}/>
         </Routes>
       </BrowserRouter>
