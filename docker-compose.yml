@@ -43,7 +43,7 @@ services:
       - 3001:3001
     environment:
       MYSQL_HOST_IP: db
-      MYSQL_DATABASE: test_db
+      MYSQL_DATABASE: test_db  # used in index.js
 #      MYSQL_USER: MYSQL_USER
 #      MYSQL_PASSWORD: MYSQL_PASSWORD
 
