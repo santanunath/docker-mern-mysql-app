@@ -1,0 +1,93 @@
+#version: '3.1'
+
+#x-common-variables: &common-variables
+#  MYSQL_DATABASE: books
+#  MYSQL_USER: MYSQL_USER
+#  MYSQL_PASSWORD: MYSQL_PASSWORD
+# -----
+# contnr1: db (mysql) @port:3306
+# contnr2: backend (expressjs) @port:3001
+# contnr3: frontend (reactjs) @port:3000
+# contnr4: nginx (proxy) @port:80
+# contnr5: adminer @port:8080
+# ------
+
+services:
+  db:
+    image: mysql
+    container_name: db
+    restart: always
+    volumes:
+      - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass  #for root/admin user login
+     # MYSQL_HOST: localhost
+      MYSQL_DATABASE: test_db #books creates database automatically
+      MYSQL_USER: MYSQL_USER  #for normal user login
+      MYSQL_PASSWORD: MYSQL_PASSWORD  #for normal user login
+
+
+  backend:
+    container_name: backend
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    depends_on:
+      - db
+  #  volumes:
+  #    - /app/node_modules
+  #    - ./backend:/app
+    ports:
+      - 3001:3001
+    environment:
+      MYSQL_HOST_IP: db
+      MYSQL_DATABASE: test_db
+#      MYSQL_USER: MYSQL_USER
+#      MYSQL_PASSWORD: MYSQL_PASSWORD
+
+
+
+#  frontend:
+#    container_name: frontend
+#    stdin_open: true
+  #    environment:
+  #      - CHOKIDAR_USEPOLLING=true
+#    build:
+#      dockerfile: Dockerfile
+#      context: ./frontend
+#    depends_on:
+#      - backend
+#    ports:
+#      - 3000:3000
+#    volumes:
+#      - /app/node_modules
+#      - ./frontend:/app
+#    environment:
+#      - CHOKIDAR_USEPOLLING=true
+
+
+
+#  nginx-proxy:
+#    container_name: nginx-proxy
+#    depends_on:
+#      - backend
+#      - frontend
+#    restart: always
+#    build:
+#      dockerfile: Dockerfile
+#      context: ./nginx
+#    ports:
+#      - 80:80
+
+
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
