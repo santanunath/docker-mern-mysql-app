@@ -76,6 +76,9 @@ app.delete("/book/:id", (req,res)=>{
     })
 })
 
+
+
+
 app.put("/book/:id", (req,res)=>{
     const bookId=req.params.id;
     const q="UPDATE tbl_books SET `title`=?,`desc`=?,`price`=?,`cover`=? WHERE id=?"
