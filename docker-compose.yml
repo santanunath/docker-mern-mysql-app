@@ -1,7 +1,6 @@
 #version: '3.1'
 
-#x-common-variables: &common-variables
-#  MYSQL_DATABASE: books
+#  MYSQL_DATABASE: test_db
 #  MYSQL_USER: MYSQL_USER
 #  MYSQL_PASSWORD: MYSQL_PASSWORD
 # -----
@@ -22,11 +21,11 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: rootpass  #for root/admin user login
+      MYSQL_ROOT_PASSWORD: rootpass  # for root user login
      # MYSQL_HOST: localhost
-      MYSQL_DATABASE: test_db #books creates database automatically
-      MYSQL_USER: MYSQL_USER  #for normal user login
-      MYSQL_PASSWORD: MYSQL_PASSWORD  #for normal user login
+      MYSQL_DATABASE: test_db # creates database automatically
+      MYSQL_USER: MYSQL_USER  # for normal user login
+      MYSQL_PASSWORD: MYSQL_PASSWORD  # for normal user login
 
 
   backend:
@@ -42,7 +41,7 @@ services:
     ports:
       - 3001:3001
     environment:
-      MYSQL_HOST_IP: db
+      MYSQL_HOST: db           # used in index.js
       MYSQL_DATABASE: test_db  # used in index.js
 #      MYSQL_USER: MYSQL_USER
 #      MYSQL_PASSWORD: MYSQL_PASSWORD
