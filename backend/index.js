@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 });
 
 /*
-app.get("/", (req,res) => {
+app.get("/", (req, res) => {
     res.json("Hello from Backend")
 });
 */
@@ -54,16 +54,15 @@ app.get("/", (req,res) => {
 
 
 // *****************
-// GET all the books 
-// from database table
+// GET all books 
 // *****************
 // http method: GET
 // API url: /book
 // *****************
 app.get('/book', (req, res) => {
-  const SelectQuery = " SELECT * FROM  tbl_books";
+  const q = " SELECT * FROM  tbl_books";
   
-  db.query(SelectQuery, (err, result) => {
+  db.query(q, (err, result) => {
     res.send(result)
   })
 })
@@ -84,17 +83,17 @@ app.get("/book", (req, res) => {
 
 // ****************
 // ADD a book 
-// to the database
 // ****************
 // http method: POST
-// API url: /insert
+// API url: /book
 // ****************
 /*
 app.post("/insert", (req, res) => {
   const bookName = req.body.setBookName;
   const bookReview = req.body.setReview;
-  const InsertQuery = "INSERT INTO tbl_books (book_name, book_review) VALUES (?, ?)";
-  db.query(InsertQuery, [bookName, bookReview], (err, result) => {
+  const q = "INSERT INTO tbl_books (book_name, book_review) VALUES (?, ?)";
+
+  db.query(q, [bookName, bookReview], (err, result) => {
     console.log(result)
   })
 })
@@ -103,8 +102,9 @@ app.post("/insert", (req, res) => {
 
 app.post("/book", (req,res) => {
     const q ="INSERT INTO tbl_books (`title`,`desc`,`price`,`cover`) VALUES (?)";
-    // const values=["title from backend","desc from backend","cover pic from backend"];
-    const values=[
+  
+  // const values=["title from backend","desc from backend","cover pic from backend"];
+  const values=[
         req.body.title,
         req.body.desc,
         req.body.price,
@@ -124,17 +124,16 @@ app.post("/book", (req,res) => {
 
 // *****************
 // DELETE a book 
-// from the database
 // *****************
 // http method: DELETE 
-// API url: /delete
+// API url: /book/:id
 // *****************
 /*
 app.delete("/delete/:bookId", (req, res) => {
   const bookId = req.params.bookId;
-  const DeleteQuery = "DELETE FROM tbl_books WHERE id = ?";
+  const q = "DELETE FROM tbl_books WHERE id = ?";
   
-  db.query(DeleteQuery, bookId, (err, result) => {
+  db.query(q, bookId, (err, result) => {
     if (err) console.log(err);
   })
 })
@@ -144,7 +143,7 @@ app.delete("/book/:id", (req, res) => {
     const bookId = req.params.id;
     const q = "DELETE FROM tbl_books WHERE id=?";
 
-    db.query(q, [bookId], (err,data) => {
+    db.query(q, [bookId], (err, data) => {
         if(err) return res.json(err)
         return res.json("Book has been deleted.")
     })
@@ -154,20 +153,39 @@ app.delete("/book/:id", (req, res) => {
 
 
 // *********************
-// UPDATE a book review
+// UPDATE a book details 
 // *********************
 // http method: PUT
-// API url: /update
+// API url: /book/:id
 // *********************
+/*
 app.put("/update/:bookId", (req, res) => {
   const bookReview = req.body.reviewUpdate;
   const bookId = req.params.bookId;
-  const UpdateQuery = "UPDATE tbl_books SET book_review = ? WHERE id = ?";
-  db.query(UpdateQuery, [bookReview, bookId], (err, result) => {
+  const q = "UPDATE tbl_books SET book_review = ? WHERE id = ?";
+  
+  db.query(q, [bookReview, bookId], (err, result) => {
     if (err) console.log(err)
   })
 })
+*/
 
+app.put("/book/:id", (req, res) => {
+    const bookId = req.params.id;
+    const q = "UPDATE tbl_books SET `title`=?,`desc`=?,`price`=?,`cover`=? WHERE id=?";
+  
+    const values=[
+        req.body.title,
+        req.body.desc,
+        req.body.price,
+        req.body.cover
+    ]
+  
+    db.query(q, [...values, bookId], (err, data) => {
+        if(err) return res.json(err)
+        return res.json("Book has been updated.")
+    })
+})
 
 
 
