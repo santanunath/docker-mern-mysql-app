@@ -14,7 +14,7 @@ const cors = require('cors');
 // ****************
 const db = mysql.createPool(
   {
-    host: 'db', 
+    host: 'db',  // your MySQL host
     user: 'MYSQL_USER', 
     password: 'MYSQL_PASSWORD', 
     database: process.env.MYSQL_DATABASE
