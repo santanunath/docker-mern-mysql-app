@@ -129,13 +129,28 @@ app.post("/book", (req,res) => {
 // http method: DELETE 
 // API url: /delete
 // *****************
+/*
 app.delete("/delete/:bookId", (req, res) => {
   const bookId = req.params.bookId;
   const DeleteQuery = "DELETE FROM tbl_books WHERE id = ?";
+  
   db.query(DeleteQuery, bookId, (err, result) => {
     if (err) console.log(err);
   })
 })
+*/
+
+app.delete("/book/:id", (req, res) => {
+    const bookId = req.params.id;
+    const q = "DELETE FROM tbl_books WHERE id=?";
+
+    db.query(q, [bookId], (err,data) => {
+        if(err) return res.json(err)
+        return res.json("Book has been deleted.")
+    })
+})
+
+
 
 
 // *********************
