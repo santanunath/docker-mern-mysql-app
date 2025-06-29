@@ -43,6 +43,7 @@ app.use(express.urlencoded({ extended: true }));
 // ****************
 app.get('/', (req, res) => {
   res.send('Hello from Backend')
+ // res.json("Hello from Backend")
 });
 
 /*
@@ -78,6 +79,24 @@ app.get("/book", (req, res) => {
 })
 */
 
+
+// *****************
+// GET a particular book
+// (created by santanu)
+// *****************
+// http method: GET
+// API url: /book:id
+// *****************
+app.get("/book/:id", (req, res) => {
+    const bookId = req.params.id;
+    const q = "SELECT * FROM tbl_books WHERE id=?";
+
+    db.query(q, [bookId], (err, data) => {
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+})
+  
 
 
 
