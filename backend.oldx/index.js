@@ -47,6 +47,7 @@ app.get("/book",(req,res)=>{
     })
 })
 
+
 app.post("/book",(req,res)=>{
     const q ="INSERT INTO tbl_books (`title`,`desc`,`price`,`cover`) VALUES (?)";
     // const values=["title from backend","desc from backend","cover pic from backend"];
@@ -62,6 +63,8 @@ app.post("/book",(req,res)=>{
     })
 
 })
+
+
 
 app.delete("/book/:id", (req,res)=>{
     const bookId=req.params.id;
