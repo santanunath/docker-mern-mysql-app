@@ -42,23 +42,44 @@ app.use(express.urlencoded({ extended: true }));
 // API url: /
 // ****************
 app.get('/', (req, res) => {
-  res.send('Hi There')
+  res.send('Hello from Backend')
 });
+
+/*
+app.get("/", (req,res) => {
+    res.json("Hello from Backend")
+});
+*/
+
 
 
 // *****************
-// GET all of the books 
-// in the database
+// GET all the books 
+// from database table
 // *****************
 // http method: GET
 // API url: /book
 // *****************
 app.get('/book', (req, res) => {
   const SelectQuery = " SELECT * FROM  tbl_books";
+  
   db.query(SelectQuery, (err, result) => {
     res.send(result)
   })
 })
+
+/*
+app.get("/book", (req, res) => {
+    const q = " SELECT * FROM tbl_books";
+    
+    db.query(q, (err,data) => {
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+})
+*/
+
+
 
 
 // ****************
