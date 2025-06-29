@@ -89,6 +89,7 @@ app.get("/book", (req, res) => {
 // http method: POST
 // API url: /insert
 // ****************
+/*
 app.post("/insert", (req, res) => {
   const bookName = req.body.setBookName;
   const bookReview = req.body.setReview;
@@ -97,6 +98,28 @@ app.post("/insert", (req, res) => {
     console.log(result)
   })
 })
+*/
+
+
+app.post("/book", (req,res) => {
+    const q ="INSERT INTO tbl_books (`title`,`desc`,`price`,`cover`) VALUES (?)";
+    // const values=["title from backend","desc from backend","cover pic from backend"];
+    const values=[
+        req.body.title,
+        req.body.desc,
+        req.body.price,
+        req.body.cover
+    ]
+  
+   db.query(q, [values], (err,data) => {
+        if(err) return res.json(err)
+        return res.json("Book has been added.")
+    })
+})
+
+
+
+
 
 
 // *****************
