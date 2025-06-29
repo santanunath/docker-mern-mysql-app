@@ -17,7 +17,7 @@ const db = mysql.createPool(
     host: 'db',  // your MySQL host
     user: 'MYSQL_USER', // your MySQL username
     password: 'MYSQL_PASSWORD', // your MySQL password
-    database: process.env.MYSQL_DATABASE
+    database: process.env.MYSQL_DATABASE  // the database you want to connect
 //    database: 'test_db'
  })
 
