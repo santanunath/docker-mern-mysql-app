@@ -5,14 +5,20 @@ import { Link } from "react-router-dom";
 
 const BACKEND_API_URL = "http://backend:4000"; // defined in docker-compose.yml
 
+
+
 const Books=()=> {
   const [books, setBooks]= useState([]);
 
   useEffect(()=>{
+    
+    // ****************
+    // GET all books
+    // ****************
     const fetchAllBooks= async ()=>{
         try{
-        //  const res=await axios.get("http://localhost:8800/book");
-            const res=await axios.get(BACKEND_API_URL + "/book");
+        //  const res = await axios.get("http://localhost:8800/book");
+            const res = await axios.get(BACKEND_API_URL + "/book");
           // console.log(res)
           setBooks(res.data);
         }catch(err){
@@ -24,6 +30,11 @@ const Books=()=> {
 
   },[]);
 
+
+  
+  // ****************
+  // DELETE a book
+  // ****************
   const handleDelete= async (id)=>{
     try{
     #  await axios.delete("http://localhost:8800/book/"+id);
