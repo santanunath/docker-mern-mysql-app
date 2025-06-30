@@ -4,26 +4,34 @@ import {useNavigate} from "react-router-dom"
 
 const BACKEND_API_URL = "http://backend:4000"; // defined in docker-compose.yml
 
+
+
 const Add=()=> {
-  const [book,setBook]=useState({
+  
+  const [book, setBook] = useState({
     title:"",
     desc:"",
     price:null,
     cover:"",
   });
 
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
-  const handleChange=(e)=>{
-    setBook((prev)=>({ ...prev, [e.target.name]:e.target.value}));
+  const handleChange=(e) => {
+    setBook((prev) => ({ ...prev, [e.target.name]:e.target.value}));
   };
 
   console.log(book)
-  
+
+  // *************
+  // ADD a book
+  // *************
   const handleClick =async e=>{
-    e.preventDefault()
+    
+    e.preventDefault(); // prevent form submission 
+    
     try{
-    #  await axios.post("http://localhost:8800/book",book)
+   #  await axios.post("http://localhost:8800/book",book)
       await axios.post(BACKEND_API_URL + "/book", book)
       navigate("/")
     }catch(err){
