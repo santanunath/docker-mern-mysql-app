@@ -36,7 +36,7 @@ services:
     depends_on:
       - db
     ports:
-      - 4000:4000 # port defined in index.js
+      - 4000:4000 # port defined in index.js, Dockerfile 
     environment:
       MYSQL_HOST: db           # used in index.js
       MYSQL_DATABASE: test_db  # used in index.js
@@ -57,7 +57,7 @@ services:
 #    ports:
 #      - 3000:3000
 #    environment:
-#      - BACKEND_API_URL=http://backend:3001 # used in /src/pages/Add.jsx,Books.jsx,Update.jsx
+#      - BACKEND_API_URL=http://backend:4000 # used in /src/pages/Add.jsx,Books.jsx,Update.jsx
 #    volumes:
 #      - /app/node_modules
 #      - ./frontend:/app
