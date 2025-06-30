@@ -5,7 +5,7 @@
 #  MYSQL_PASSWORD: MYSQL_PASSWORD
 # -----
 # contnr1: db (mysql) @port:3306
-# contnr2: backend (expressjs) @port:3001
+# contnr2: backend (expressjs) @port:4000
 # contnr3: frontend (reactjs) @port:3000
 # contnr4: nginx (proxy) @port:80
 # contnr5: adminer @port:8080
@@ -35,24 +35,20 @@ services:
       context: ./backend
     depends_on:
       - db
-  #  volumes:
-  #    - /app/node_modules
-  #    - ./backend:/app
     ports:
-      - 3001:3001
+      - 4000:4000 # port defined in index.js
     environment:
       MYSQL_HOST: db           # used in index.js
       MYSQL_DATABASE: test_db  # used in index.js
       MYSQL_USER: MYSQL_USER   # used in index.js
       MYSQL_PASSWORD: MYSQL_PASSWORD # used in index.js
-
+  #  volumes:
+  #    - /app/node_modules
+  #    - ./backend:/app
 
 
 #  frontend:
 #    container_name: frontend
-#    stdin_open: true
-  #    environment:
-  #      - CHOKIDAR_USEPOLLING=true
 #    build:
 #      dockerfile: Dockerfile
 #      context: ./frontend
@@ -60,12 +56,11 @@ services:
 #      - backend
 #    ports:
 #      - 3000:3000
+#    environment:
+#      - BACKEND_API_URL=http://backend:3001 # used in /src/pages/Add.jsx,Books.jsx,Update.jsx
 #    volumes:
 #      - /app/node_modules
 #      - ./frontend:/app
-#    environment:
-#      - CHOKIDAR_USEPOLLING=true
-#      - BACKEND_API_URL="http://backend:3001" # used in /src/pages/Add.jsx,Books.jsx,Update.jsx
 
 
 
