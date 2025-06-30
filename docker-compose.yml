@@ -43,8 +43,8 @@ services:
     environment:
       MYSQL_HOST: db           # used in index.js
       MYSQL_DATABASE: test_db  # used in index.js
-#      MYSQL_USER: MYSQL_USER
-#      MYSQL_PASSWORD: MYSQL_PASSWORD
+      MYSQL_USER: MYSQL_USER   # used in index.js
+      MYSQL_PASSWORD: MYSQL_PASSWORD # used in index.js
 
 
 
