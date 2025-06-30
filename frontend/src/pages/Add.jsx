@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import {useNavigate} from "react-router-dom"
 
-const BACKEND_API_URL = "http://backend:4000";
+const BACKEND_API_URL = "http://backend:4000"; // defined in docker-compose.yml
 
 const Add=()=> {
   const [book,setBook]=useState({
