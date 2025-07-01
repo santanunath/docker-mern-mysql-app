@@ -31,7 +31,7 @@ const Add=()=> {
     e.preventDefault(); // prevent form submission 
     
     try{
-   #  await axios.post("http://localhost:8800/book",book)
+   //  await axios.post("http://localhost:8800/book",book)
       await axios.post(BACKEND_API_URL + "/book", book)
       navigate("/")
     }catch(err){
