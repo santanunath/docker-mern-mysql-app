@@ -48,18 +48,18 @@ services:
   #    - ./backend:/app
 
 
-#  frontend:
-#    container_name: frontend
-#    restart: always
-#    build:
-#      dockerfile: Dockerfile
-#      context: ./frontend
-#    depends_on:
-#      - backend
-#    ports:
-#      - 3000:3000
-#    environment:
-#      - BACKEND_API_URL=http://backend:4000 # used in /src/pages/Add.jsx,Books.jsx,Update.jsx
+  frontend:
+    container_name: frontend
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - 3000:3000
+    environment:
+      - BACKEND_API_URL=http://backend:4000 # used in /src/pages/Add.jsx,Books.jsx,Update.jsx
 #    volumes:
 #      - /app/node_modules
 #      - ./frontend:/app
