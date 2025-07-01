@@ -50,6 +50,7 @@ services:
 
 #  frontend:
 #    container_name: frontend
+#    restart: always
 #    build:
 #      dockerfile: Dockerfile
 #      context: ./frontend
