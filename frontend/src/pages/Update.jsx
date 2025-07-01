@@ -26,7 +26,7 @@ const Update=()=> {
   const handleClick =async e=>{
     e.preventDefault()
     try{
-     # await axios.put("http://localhost:8800/book/"+bookId,book)
+     // await axios.put("http://localhost:8800/book/"+bookId,book)
       await axios.put(BACKEND_API_URL + "/book/" + bookId, book)
       navigate("/")
     }catch(err){
