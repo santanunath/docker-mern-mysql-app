@@ -31,14 +31,14 @@ It installs packages mentioned under the heading 'dependencies' in file package.
 Step4:
 inside the main project directory  
 Run   
-$ `docker-compose up --build`   
+$ `docker-compose up -d`   
 
 
 Step5:
 
 WARNING!!    
 > you must wait for 5 minutes for setup MySQL properly.   
-> u can check if MySQL is in running state.   
+> u can check if MySQL is ready for connection.   
 > $ sudo docker logs db   
 
 Access the ADMINER using route    `http://host-ip:8000/`    
