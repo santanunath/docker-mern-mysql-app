@@ -38,7 +38,7 @@ Step5:
 
 WARNING!!    
 > you must wait for 5 minutes for setup MySQL properly.   
-> u can check if MySQL is in running status.   
+> u can check if MySQL is in running state.   
 > $ sudo docker logs db   
 
 Access the ADMINER using route    `http://host-ip:8000/`    
