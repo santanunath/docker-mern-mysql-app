@@ -85,9 +85,9 @@ app.get("/book/:id", (req, res) => {
     const bookId = req.params.id;
     const q = "SELECT * FROM tbl_books WHERE id=?";
 
-    db.query(q, [bookId], (err, data) => {
+    db.query(q, [bookId], (err, result) => {
         if(err) return res.json(err)
-        return res.json(data)
+        return res.json(result)
     })
 })
   
