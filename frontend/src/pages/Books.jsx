@@ -9,24 +9,33 @@ const BACKEND_API_URL = "http://backend:4000"; // defined in docker-compose.yml
 
 const Books=()=> {
 
+  // ------------
   // all retrieved records are stored in 'books' variable 
+  // ------------
   const [books, setBooks]= useState([]);
 
+  
   // ---------
   // function defined inside
   // useEffect()
   // executes once when the page loads
   // ---------
-  useEffect(()=>{
+  useEffect(() => {
+    
+    fetchAllBooks()
+    
+  },[]); // Empty dependency array means it runs once on page load
+
+
     
     // ****************
     // GET all books
     // ****************
-    const fetchAllBooks= async ()=>{
+    const fetchAllBooks= async ()=> {
         try
         {
         //  const res = await axios.get("http://localhost:8800/book");
-           console.log("backend api url =" + BACKEND_API_URL);
+           alert("backend api url = " + BACKEND_API_URL);
             const res = await axios.get(BACKEND_API_URL + "/book");
            console.log(res)
           setBooks(res.data); // all records are stored in 'books' variable
@@ -37,11 +46,7 @@ const Books=()=> {
         }
     }
 
-    fetchAllBooks()
-
-  },[]);
-
-
+  
   
   // ****************
   // DELETE a book
