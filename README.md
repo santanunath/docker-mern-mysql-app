@@ -63,6 +63,16 @@ Step6:
 `http://localhost:80/`    
 Note: Nginx server is running @port80.
 
+
+
+http://192.168.0.102:8080 (Adminer).    
+
+http://192.168.0.102:4000 (backend API).    
+http://192.168.0.102:4000/book (backend API).     
+http://192.168.0.102:4000/book/1 (backend API).    
+    
+http://192.168.0.102:3000 (frontend).   
+    
 Check out the step by step explained guide [here](https://www.webscale.com/engineering-education/build-and-dockerize-a-full-stack-react-app-with-nodejs-and-nginx/)
 
 
