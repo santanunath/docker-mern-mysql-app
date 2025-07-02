@@ -24,7 +24,9 @@ const Update=()=> {
   console.log(book)
   
   const handleClick =async e=>{
+
     e.preventDefault()
+
     try{
      // await axios.put("http://localhost:8800/book/"+bookId,book)
       await axios.put(BACKEND_API_URL + "/book/" + bookId, book)
@@ -33,7 +35,10 @@ const Update=()=> {
       console.log(err)
     }
   }
+
+
   return (
+
     <div className='form'>
       <h1>Update the Book</h1>
 
@@ -46,7 +51,7 @@ const Update=()=> {
 
       <input
       type='text'
-      placeholder='Discription'
+      placeholder='Description'
       onChange={handleChange}
       name='desc'
       />
