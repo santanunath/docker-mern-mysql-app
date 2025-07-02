@@ -25,7 +25,7 @@ const Books=()=> {
     
     fetchAllBooks()
     
-  },[]); // Empty dependency array means it runs once on page load
+  },[]); // Empty dependency array means it runs once before page load
 
 
     
