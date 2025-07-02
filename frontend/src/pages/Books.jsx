@@ -8,20 +8,31 @@ const BACKEND_API_URL = "http://backend:4000"; // defined in docker-compose.yml
 
 
 const Books=()=> {
+
+  // all retrieved records are stored in 'books' variable 
   const [books, setBooks]= useState([]);
 
+  // ---------
+  // function defined inside
+  // useEffect()
+  // executes once when the page loads
+  // ---------
   useEffect(()=>{
     
     // ****************
     // GET all books
     // ****************
     const fetchAllBooks= async ()=>{
-        try{
+        try
+        {
         //  const res = await axios.get("http://localhost:8800/book");
+           console.log("backend api url =" + BACKEND_API_URL);
             const res = await axios.get(BACKEND_API_URL + "/book");
-          // console.log(res)
-          setBooks(res.data);
-        }catch(err){
+           console.log(res)
+          setBooks(res.data); // all records are stored in 'books' variable
+        }
+        catch(err)
+        {
           console.log(err);
         }
     }
@@ -36,13 +47,18 @@ const Books=()=> {
   // DELETE a book
   // ****************
   const handleDelete= async (id)=>{
-    try{
+    
+    try
+    {
     //  await axios.delete("http://localhost:8800/book/"+id);
       await axios.delete(BACKEND_API_URL + "/book/" + id);
       window.location.reload()
-    }catch(err){
+    }
+    catch(err)
+    {
       console.log(err);
     }
+    
   }
 
   return (
@@ -50,7 +66,7 @@ const Books=()=> {
       <h1>My Books</h1>
       <div className='books'>
 
-        {books.map(book=>(
+        {books.map(book => (
 
           <div className="book" key={book.id}>
             {book.cover && <img src="" alt="" />}
