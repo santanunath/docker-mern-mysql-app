@@ -101,8 +101,10 @@ app.get("/book/:id", (req, res) => {
 // ****************
 /*
 app.post("/insert", (req, res) => {
+
   const bookName = req.body.setBookName;
   const bookReview = req.body.setReview;
+
   const q = "INSERT INTO tbl_books (book_name, book_review) VALUES (?, ?)";
 
   db.query(q, [bookName, bookReview], (err, result) => {
@@ -113,14 +115,14 @@ app.post("/insert", (req, res) => {
 
 
 app.post("/book", (req,res) => {
-    const q ="INSERT INTO tbl_books (`title`,`desc`,`price`,`cover`) VALUES (?)";
+
+    const q ="INSERT INTO tbl_books (`title`,`desc`) VALUES (?)";
   
-  // const values=["title from backend","desc from backend","cover pic from backend"];
+  // const values=["title from backend","desc from backend"];
+
   const values=[
         req.body.title,
-        req.body.desc,
-        req.body.price,
-        req.body.cover
+        req.body.desc
     ]
   
    db.query(q, [values], (err,data) => {
@@ -142,6 +144,7 @@ app.post("/book", (req,res) => {
 // *****************
 /*
 app.delete("/delete/:bookId", (req, res) => {
+
   const bookId = req.params.bookId;
   const q = "DELETE FROM tbl_books WHERE id = ?";
   
@@ -152,6 +155,7 @@ app.delete("/delete/:bookId", (req, res) => {
 */
 
 app.delete("/book/:id", (req, res) => {
+
     const bookId = req.params.id;
     const q = "DELETE FROM tbl_books WHERE id=?";
 
@@ -172,8 +176,10 @@ app.delete("/book/:id", (req, res) => {
 // *********************
 /*
 app.put("/update/:bookId", (req, res) => {
+
   const bookReview = req.body.reviewUpdate;
   const bookId = req.params.bookId;
+
   const q = "UPDATE tbl_books SET book_review = ? WHERE id = ?";
   
   db.query(q, [bookReview, bookId], (err, result) => {
@@ -183,14 +189,13 @@ app.put("/update/:bookId", (req, res) => {
 */
 
 app.put("/book/:id", (req, res) => {
+
     const bookId = req.params.id;
-    const q = "UPDATE tbl_books SET `title`=?,`desc`=?,`price`=?,`cover`=? WHERE id=?";
+    const q = "UPDATE tbl_books SET `title`=?,`desc`=? WHERE id=?";
   
     const values=[
         req.body.title,
-        req.body.desc,
-        req.body.price,
-        req.body.cover
+        req.body.desc
     ]
   
     db.query(q, [...values, bookId], (err, data) => {
