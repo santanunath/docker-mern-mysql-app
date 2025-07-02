@@ -12,23 +12,23 @@ Proxy Server: Nginx
 for backend, index.js is the main file. (port:3001 defined here)   
 for frontend, /src/App.js is the main file    
      
-Step1:
+## Step1:
 > Clone this repo in your PC/laptop/vps.   
 $ git clone repo-url
 
-Step2:
+## Step2:
 > inside the 'frontend' directory    
 Run   
 $ `npm install`   
 It installs packages mentioned under the heading 'dependencies' in file package.json
 
-Step3:
+## Step3:
 > inside the 'backend' directory.  
 Run   
 $ `npm install`   
 It installs packages mentioned under the heading 'dependencies' in file package.json
 
-Step4:   
+## Step4:   
     
 Docker image size   
 MySQL (877mb)    
@@ -42,7 +42,7 @@ Run
 $ `docker-compose up -d`   
 
 
-Step5:
+## Step5:
 
 WARNING!!    
 > you must wait for 5 minutes for setup MySQL properly.   
@@ -58,7 +58,7 @@ password: MYSQL_ROOT_PASSWORD
 setup.sql is executed automatically to create the db-table.      
         
       
-Step6:
+## Step6:
 > To start interacting with the application, open in a browser     
 `http://localhost:80/`    
 Note: Nginx server is running @port80.
