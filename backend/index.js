@@ -53,6 +53,7 @@ app.get('/', (req, res) => {
 // http method: GET
 // API url: /book
 // *****************
+/*
 app.get('/book', (req, res) => {
   const q = " SELECT * FROM  tbl_books";
   
@@ -60,17 +61,17 @@ app.get('/book', (req, res) => {
     res.send(result)
   })
 })
+*/
 
-/*
 app.get("/book", (req, res) => {
     const q = " SELECT * FROM tbl_books";
     
-    db.query(q, (err,data) => {
+    db.query(q, (err, result) => {
         if(err) return res.json(err)
-        return res.json(data)
+        return res.json(result)
     })
 })
-*/
+
 
 
 // *****************
