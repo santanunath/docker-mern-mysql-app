@@ -119,14 +119,13 @@ app.post("/book", (req,res) => {
 
     const q ="INSERT INTO tbl_books (`title`,`desc`) VALUES (?)";
   
-  // const values=["title from backend","desc from backend"];
-
+ 
   const values=[
         req.body.title,
         req.body.desc
     ]
   
-   db.query(q, [values], (err,data) => {
+   db.query(q, [values], (err, result) => {
         if(err) return res.json(err)
         return res.json("Book has been added.")
     })
@@ -160,7 +159,7 @@ app.delete("/book/:id", (req, res) => {
     const bookId = req.params.id;
     const q = "DELETE FROM tbl_books WHERE id=?";
 
-    db.query(q, [bookId], (err, data) => {
+    db.query(q, [bookId], (err, result) => {
         if(err) return res.json(err)
         return res.json("Book has been deleted.")
     })
