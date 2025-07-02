@@ -10,7 +10,8 @@ const BACKEND_API_URL = "http://backend:4000"; // defined in docker-compose.yml
 const Books=()=> {
 
   // ------------
-  // all retrieved records are stored in 'books' variable 
+  // all retrieved records are stored in
+  // 'books' variable 
   // ------------
   const [books, setBooks]= useState([]);
 
