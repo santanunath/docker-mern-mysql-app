@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react'
 import axios from 'axios'
 import { Link } from "react-router-dom";
 
+
 const BACKEND_API_URL = "http://192.168.0.102:4000"; // defined in docker-compose.yml
 
 
@@ -33,17 +34,16 @@ const Books=()=> {
     // GET all books
     // ****************
     const fetchAllBooks= async ()=> {
+      
         try
         {
-        //  const res = await axios.get("http://localhost:8800/book");
-           alert("backend api url = " + BACKEND_API_URL);
-            const res = await axios.get(BACKEND_API_URL + "/book");
-           console.log(res)
-          setBooks(res.data); // all records are stored in 'books' variable
+           const res = await axios.get(BACKEND_API_URL + "/book");
+           setBooks(res.data); // all records are stored in 'books' variable
         }
         catch(err)
         {
           console.log(err);
+          alert(err);
         }
     }
 
@@ -56,17 +56,19 @@ const Books=()=> {
     
     try
     {
-    //  await axios.delete("http://localhost:8800/book/"+id);
       await axios.delete(BACKEND_API_URL + "/book/" + id);
       window.location.reload()
     }
     catch(err)
     {
       console.log(err);
+      alert(err);
     }
     
   }
 
+
+  
   return (
     <div>
       <h1>My Books</h1>
@@ -93,7 +95,7 @@ const Books=()=> {
           </div>
         ))}
 
-      <button>
+       <button>
         <Link to="/add" >
          Add new book
         </Link>
