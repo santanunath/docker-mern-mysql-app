@@ -23,7 +23,7 @@ const Books=()=> {
   // ---------
   useEffect(() => {
     
-    fetchAllBooks()
+    fetchAllBooks();
     
   },[]); // Empty dependency array means it runs once before page load
 
