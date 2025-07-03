@@ -3,7 +3,7 @@ import axios from 'axios';
 import {useLocation, useNavigate} from "react-router-dom"
 
 
-const BACKEND_API_URL = "http://backend:4000"; // defined in docker-compose.yml
+const BACKEND_API_URL = "http://192.168.0.102:4000"; // defined in docker-compose.yml
 
 const Update=()=> {
 
@@ -27,12 +27,15 @@ const Update=()=> {
 
     e.preventDefault()
 
-    try{
-     // await axios.put("http://localhost:8800/book/"+bookId,book)
-      await axios.put(BACKEND_API_URL + "/book/" + bookId, book)
-      navigate("/")
-    }catch(err){
-      console.log(err)
+    try
+    {
+      await axios.put(BACKEND_API_URL + "/book/" + bookId, book);
+      navigate("/");
+    }
+    catch(err)
+    {
+      console.log(err);
+      alert(err);
     }
   }
 
