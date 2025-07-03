@@ -1,3 +1,5 @@
+### Tested: OK (in my Rpi3b+)
+
 ## Build and Dockerize a FullStack React app with Nodejs, MySQL and Nginx (proxy server)
 
 
