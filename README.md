@@ -14,7 +14,7 @@ for frontend, /src/App.js is the main file (port:3000)
      
 ## Step1:
 > Clone this repo in your PC/laptop/vps.   
-$ git clone <repo-url>
+$ git clone repo_url
 
 ## Step2:
 > inside the 'frontend' directory    
