@@ -59,7 +59,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      - BACKEND_API_URL=http://backend:4000 # used in /src/pages/Add.jsx,Books.jsx,Update.jsx
+      - BACKEND_API_URL=http://192.168.0.102:4000 # used in /src/pages/Add.jsx,Books.jsx,Update.jsx
 #    volumes:
 #      - /app/node_modules
 #      - ./frontend:/app
