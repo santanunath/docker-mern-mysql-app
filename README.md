@@ -54,7 +54,11 @@ to login ADMINER, use
 server: db   
 username: root   
 password: MYSQL_ROOT_PASSWORD    
-
+(or)    
+server: db   
+username: MYSQL_USERNAME  
+password: MYSQL_PASSWORD    
+      
 setup.sql is executed automatically to create the db-table.      
         
       
