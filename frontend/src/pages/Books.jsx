@@ -19,7 +19,7 @@ const Books=()=> {
   // ---------
   // function defined inside
   // useEffect()
-  // executes once when the page loads
+  // executes once before the page loads
   // ---------
   useEffect(() => {
     
