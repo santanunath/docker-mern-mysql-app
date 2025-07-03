@@ -3,20 +3,18 @@
 ## Build and Dockerize a FullStack React app with Nodejs, MySQL and Nginx (proxy server)
 
 
-> Note: here CLASS based components are used
-
 
 Frontend: reacts     
 Backend: nodejs + expressjs    
 Database: MySQL    
 Proxy Server: Nginx      
     
-for backend, index.js is the main file. (port:3001 defined here)   
-for frontend, /src/App.js is the main file    
+for backend, index.js is the main file. (port:4000 defined here)   
+for frontend, /src/App.js is the main file (port:3000)   
      
 ## Step1:
 > Clone this repo in your PC/laptop/vps.   
-$ git clone repo-url
+$ git clone <repo-url>
 
 ## Step2:
 > inside the 'frontend' directory    
