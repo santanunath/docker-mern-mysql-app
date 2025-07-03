@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react'
 import axios from 'axios'
 import { Link } from "react-router-dom";
 
-const BACKEND_API_URL = "http://backend:4000"; // defined in docker-compose.yml
+const BACKEND_API_URL = "http://192.168.0.102:4000"; // defined in docker-compose.yml
 
 
 
