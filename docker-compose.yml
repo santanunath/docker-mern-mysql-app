@@ -12,7 +12,7 @@
 
 services:
   db:
-    image: mysql
+    image: mariadb
     container_name: db
     restart: always
     volumes:
@@ -20,11 +20,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: rootpass  # for root user login
-     # MYSQL_HOST: localhost
-      MYSQL_DATABASE: test_db # creates database automatically
-      MYSQL_USER: MYSQL_USER  # for normal user login
-      MYSQL_PASSWORD: MYSQL_PASSWORD  # for normal user login
+      MARIADB_ROOT_PASSWORD: rootpass  # for root user login
+      MARIADB_DATABASE: test_db # creates database automatically
+      MARIADB_USER: MYSQL_USER  # for normal user login
+      MARIADB_PASSWORD: MYSQL_PASSWORD  # for normal user login
 
 
   backend:
