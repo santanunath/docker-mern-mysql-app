@@ -20,10 +20,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      MARIADB_ROOT_PASSWORD: rootpass  # for root user login
+      MARIADB_ROOT_PASSWORD: example  # for root user login
       MARIADB_DATABASE: test_db # creates database automatically
-      MARIADB_USER: MYSQL_USER  # for normal user login
-      MARIADB_PASSWORD: MYSQL_PASSWORD  # for normal user login
+      MARIADB_USER: ronit  # for normal user login
+      MARIADB_PASSWORD: gablu  # for normal user login
 
 
   backend:
