@@ -36,9 +36,10 @@ inside the main project directory
 Run   
 $ `docker-compose up -d`   
 
+$ docker images     
       
 Docker image size (after extracting the images)   
-MySQL (877mb)    
+MySQL (877mb) MariaDb (356mb)    
 Adminer (117mb)     
 Node (163mb)     
 Backend (170mb)   
