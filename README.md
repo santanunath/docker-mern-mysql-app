@@ -29,18 +29,22 @@ $ `npm install`
 It installs packages mentioned under the heading 'dependencies' in file package.json
 
 ## Step4:   
-    
+### How to run the application using Docker
+      
+
+       
+inside the main project directory  
+Run   
+$ `docker-compose up -d`   
+
+      
 Docker image size   
 MySQL (877mb)    
 Adminer (117mb)     
 Node (163mb)     
 Backend (170mb)   
 Frontend (504mb)     
-       
-inside the main project directory  
-Run   
-$ `docker-compose up -d`   
-
+     
 
 ## Step5:
 
