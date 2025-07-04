@@ -38,7 +38,7 @@ $ `docker-compose up -d`
 
 $ docker images     
       
-Docker image size (after extracting the images)   
+> Docker image size (after extracting the images)   
 MySQL (877mb) MariaDb (356mb)    
 Adminer (117mb)     
 Node (163mb)     
@@ -57,11 +57,11 @@ Access the ADMINER using route    `http://host-ip:8000/`
 to login ADMINER, use    
 server: db   
 username: root   
-password: MYSQL_ROOT_PASSWORD    
+password: example    
 (or)    
 server: db   
-username: MYSQL_USERNAME  
-password: MYSQL_PASSWORD    
+username: ronit   
+password: gablu    
       
 setup.sql is executed automatically to create the db-table.      
         
