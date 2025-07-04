@@ -28,8 +28,7 @@ Run
 $ `npm install`   
 It installs packages mentioned under the heading 'dependencies' in file package.json
 
-## Step4:   
-### How to run the application using Docker
+## Step4: How to run the application using Docker
       
 
        
