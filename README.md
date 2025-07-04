@@ -37,7 +37,7 @@ Run
 $ `docker-compose up -d`   
 
       
-Docker image size (after extracting)   
+Docker image size (after extracting the images)   
 MySQL (877mb)    
 Adminer (117mb)     
 Node (163mb)     
